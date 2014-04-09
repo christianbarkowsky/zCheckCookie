@@ -25,7 +25,9 @@ class CheckCookie extends \Backend
 	public function generatePage(\PageModel $objPage, \LayoutModel $objLayout, \PageRegular $objPageRegular)
 	{
 		$objDatabase = \Database::getInstance();
-	
+		
+		$_SESSION['ZCHECKCOOKIE_CURRENT_PAGE'] = \Environment::get('request');
+		
 		// check if this page is proteced
 		if($objPage->includeCheckCookie)
 		{

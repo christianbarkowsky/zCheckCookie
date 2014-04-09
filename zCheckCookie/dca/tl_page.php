@@ -59,8 +59,7 @@ $GLOBALS['TL_DCA']['tl_page']['fields']['cCJumpTo'] = array
 	'foreignKey'        => 'tl_page.title',
 	'eval'              => array('fieldType'=>'radio', 'mandatory'=>true),
 	'sql'               => "int(10) unsigned NOT NULL default '0'",
-	'relation'          => array('type'=>'hasOne', 'load'=>'eager')
-	
+	'relation'          => array('type'=>'hasOne', 'load'=>'eager')	
 );
 
 $GLOBALS['TL_DCA']['tl_page']['fields']['cCCookieValue'] = array
