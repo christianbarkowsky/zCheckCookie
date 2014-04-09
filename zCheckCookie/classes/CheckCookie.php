@@ -26,7 +26,7 @@ class CheckCookie extends \Backend
 	{
 		$objDatabase = \Database::getInstance();
 		
-		$_SESSION['ZCHECKCOOKIE_CURRENT_PAGE'] = \Environment::get('request');
+		$_SESSION['ZCHECKCOOKIE_CURRENT_PAGE'] = $objPage->id;
 		
 		// check if this page is proteced
 		if($objPage->includeCheckCookie)
