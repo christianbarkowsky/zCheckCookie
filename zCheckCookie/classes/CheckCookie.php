@@ -26,7 +26,8 @@ class CheckCookie extends \Backend
 	{
 		$objDatabase = \Database::getInstance();
 		
-		$_SESSION['ZCHECKCOOKIE_CURRENT_PAGE'] = $objPage->id;
+		// Set current page id in cookie
+		$this->setCookie('ZCHECKCOOKIE_PAGEID', $objPage->id, time() + 84400);
 		
 		// check if this page is proteced
 		if($objPage->includeCheckCookie)
