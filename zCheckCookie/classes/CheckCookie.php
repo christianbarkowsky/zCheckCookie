@@ -26,9 +26,6 @@ class CheckCookie extends \Backend
 	{
 		$objDatabase = \Database::getInstance();
 		
-		// Set current page id in cookie
-		$this->setCookie('ZCHECKCOOKIE_PAGEID', $objPage->id, time() + 84400);
-		
 		// check if this page is proteced
 		if($objPage->includeCheckCookie)
 		{
@@ -67,6 +64,9 @@ class CheckCookie extends \Backend
 			// check if we need to redirect with XOR which equals ($checkCookieExists && !$cookieExists) || (!$checkCookieExists && $cookieExists)
 			if (!($checkCookieExists xor $cookieExists))
 			{
+				// Set current page id in cookie
+				$this->setCookie('ZCHECKCOOKIE_PAGEID', $objPage->id, time() + 84400);
+			
 				$myPageObj = $objDatabase->prepare("SELECT * FROM tl_page WHERE id=?")->execute($checkCookieTarget);
 				$this->redirect($this->generateFrontendUrl($myPageObj->row()));
 			}
